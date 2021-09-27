@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { getBooksApi } from '../state/books.actions';
 import { Book } from './books.model';
 import { distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
- 
+
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html'
