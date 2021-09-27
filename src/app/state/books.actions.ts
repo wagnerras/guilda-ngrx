@@ -18,4 +18,6 @@ export const retrievedBookList = createAction(
 
 export const getBooksApi = createAction('[book effects]',
   props<{ query }>()
-); 
+);
+
+

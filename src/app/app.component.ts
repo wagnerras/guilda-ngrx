@@ -26,11 +26,11 @@ export class AppComponent implements OnInit {
     this.store.dispatch(getBooksApi({query: ''}));
   }
 
-  onAdd(bookId): void {
+  onAdd(bookId: string): void {
     this.store.dispatch(addBook({ bookId }));
   }
 
-  onRemove(bookId): void {
+  onRemove(bookId: string): void {
     this.store.dispatch(removeBook({ bookId }));
   }
 
