@@ -1,8 +1,8 @@
-import { createSelector, createFeatureSelector } from "@ngrx/store";
-import { AppState } from "./app.state";
-import { Book } from "../book-list/books.model";
+import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { AppState } from './app.state';
+import { Book } from '../book-list/books.model';
 
-export const selectFeatureBooks = (state: AppState) => state['books'];
+export const selectFeatureBooks = (state) => state.books;
 
 export const selectBooks = createSelector(
   selectFeatureBooks,
@@ -18,6 +18,6 @@ export const selectBookCollection = createSelector(
   selectBooks,
   selectCollectionState,
   (books: Array<Book>, collection: Array<string>) => {
-    return collection.map((id) => books.find((book) => book.id === id))
+    return collection.map((id) => books.find((book) => book.id === id));
   }
 );

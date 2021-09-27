@@ -13,7 +13,7 @@ export const booksReducer = createReducer(
     return {...state, collection};
   }),
   on(addBook, (state, { bookId }) => {
-    if (state.collection.indexOf(bookId) > -1) return state;
+    if (state.collection.indexOf(bookId) > -1) { return state; }
     const collection = [...state.collection, bookId];
     return {...state, collection };
   })

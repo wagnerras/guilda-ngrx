@@ -5,7 +5,6 @@ export const addBook = createAction(
   props<{ bookId: string }>()
 );
 
-
 export const removeBook = createAction(
   '[Book Collection] Remove Book',
   props<{ bookId: string }>()
