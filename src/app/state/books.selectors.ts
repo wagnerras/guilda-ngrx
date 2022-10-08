@@ -1,4 +1,4 @@
-import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 import { AppState } from './app.state';
 import { Book } from '../book-list/books.model';
 
