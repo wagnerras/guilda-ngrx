@@ -9,15 +9,45 @@ export const selectBooks = createSelector(
   (state: AppState): ReadonlyArray<Book> => state.booksList
 );
 
-export const selectCollectionState = createSelector(
+export const selectCollection = createSelector(
   selectFeatureBooks,
-  (state: AppState): ReadonlyArray<string> => state.collection
+  (state: AppState): ReadonlyArray<Book> => state.collection
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const selectBookCollection = createSelector(
   selectBooks,
-  selectCollectionState,
-  (books: Array<Book>, collection: Array<string>) => {
-    return collection.map((id) => books.find((book) => book.id === id));
+  selectCollection,
+  (books: Array<Book>, collection: Array<Book>) => {
+    let bookList = [];
+    collection.forEach((item) => {
+      const book = books.find((book) => book.id === item.id);
+      book && bookList.push(book.volumeInfo.title);
+    })
+    return bookList;
   }
-);
+); 

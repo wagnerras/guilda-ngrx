@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { map, mergeMap, catchError, switchMap, tap, concatMap } from 'rxjs/operators';
+import { switchMap, concatMap } from 'rxjs/operators';
 import { GoogleBooksService } from '../book-list/books.service';
 import { getBooksApi, retrievedBookList} from '../state/books.actions';
 
@@ -20,7 +20,7 @@ export class BookEffects {
     ofType(getBooksApi),
     switchMap(({ query }) => this.booksService.getBooks(query)
       .pipe(
-        concatMap(Book => of(retrievedBookList({ Book })))
+        concatMap(booksList => of(retrievedBookList({ booksList })))
       ))
   )
   );
