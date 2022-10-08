@@ -14,7 +14,7 @@ export class GoogleBooksService {
     params = params.append('q', query ? query : 'all');
     return this.http
       .get<{ items: Book[] }>(
-        `https://www.googleapis.com/books/v1/volumes?maxResults=5&orderBy=relevance`,
+        `https://www.googleapis.com/books/v1/volumes?maxResults=10&orderBy=relevance`,
         { params }
       )
       .pipe(map((books) => books.items || []));

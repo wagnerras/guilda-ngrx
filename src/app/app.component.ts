@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { take } from 'rxjs/operators'
+import { Store } from '@ngrx/store';
 
 import { selectCollection, selectBooks, selectBookCollection } from './state/books.selectors';
 import {
@@ -18,6 +17,8 @@ export class AppComponent implements OnInit {
 
   books$ = this.store.select(selectBooks);
   bookCollection$ = this.store.select(selectCollection);
+  teste$ = this.store.select(selectBookCollection)
+    .subscribe(books => console.log(books));
   search = '';
 
   constructor(
@@ -40,9 +41,4 @@ export class AppComponent implements OnInit {
     this.store.dispatch(getBooksApi({ query: search }));
   }
 
-  joinSelectors() {
-    this.store.select(selectBookCollection)
-      .pipe(take(1))
-      .subscribe(books => console.log(books));
-  }
 }
