@@ -14,31 +14,6 @@ export const selectCollection = createSelector(
   (state: AppState): ReadonlyArray<Book> => state.collection
 );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const selectBookCollection = createSelector(
   selectBooks,
   selectCollection,
