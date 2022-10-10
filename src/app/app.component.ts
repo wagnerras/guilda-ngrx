@@ -16,8 +16,7 @@ export class AppComponent implements OnInit {
 
   books$ = this.store.select(selectBooks);
   bookCollection$ = this.store.select(selectCollection);
-  teste$ = this.store.select(selectBookCollection)
-    .subscribe(books => console.log(books));
+  alreadyHave$ = this.store.select(selectBookCollection);
   search = '';
 
   constructor(

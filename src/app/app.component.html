@@ -34,5 +34,10 @@
                 (remove)="onRemove($event)">
             </app-book-list>
         </div>
+        <div *ngIf="alreadyHave$ | async as books" class="col-12 mt-2">
+            <span *ngFor="let book of books" class="mr-2 text-primary">
+                {{book}}
+            </span>
+        </div> 
     </div>
 </div>
