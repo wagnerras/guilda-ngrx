@@ -5,6 +5,7 @@ import {
   addBook,
   removeBook,
   getBooksApi,
+  clean
 } from './state/books.actions';
 import { Book } from './book-list/books.model';
 
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
 
   books$ = this.store.select(selectBooks);
   bookCollection$ = this.store.select(selectCollection);
-  alreadyHave$ = this.store.select(selectBookCollection);
+  collectionByAuthor$ = this.store.select(selectBookCollection);
   search = '';
 
   constructor(
@@ -37,6 +38,10 @@ export class AppComponent implements OnInit {
 
   getBooks(search): void {
     this.store.dispatch(getBooksApi({ query: search }));
+  }
+
+  clean() {
+    this.store.dispatch(clean());
   }
 
 }

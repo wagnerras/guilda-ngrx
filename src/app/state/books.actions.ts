@@ -16,8 +16,11 @@ export const retrievedBookList = createAction(
   props<{ booksList }>()
 );
 
-export const getBooksApi = createAction('[book effects]',
+export const getBooksApi = createAction('[Get Books]',
   props<{ query }>()
 );
+
+
+export const clean = createAction('[Clean]');
 
 
